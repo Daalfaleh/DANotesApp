@@ -4,12 +4,14 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.Icons
+// import androidx.compose.material.icons.Icons // Removed to avoid ambiguity
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material.icons.filled.DarkMode
 import androidx.compose.material.icons.filled.LightMode
 import androidx.compose.material.icons.filled.SettingsBrightness // For System
+import androidx.compose.material.icons.filled.PushPin // Ensure this is present
+import androidx.compose.material.icons.outlined.PushPin // Ensure this is present
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState

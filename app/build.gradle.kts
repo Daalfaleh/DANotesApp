@@ -60,6 +60,7 @@ dependencies {
     // Jetpack Compose UI
     implementation("androidx.compose.ui:ui:1.6.1")
     implementation("androidx.compose.material3:material3:1.2.0-alpha10")
+    implementation("androidx.compose.material:material-icons-extended:1.2.0-alpha10")
     implementation("androidx.activity:activity-compose:1.9.0")
     implementation("androidx.navigation:navigation-compose:2.7.7")
 
