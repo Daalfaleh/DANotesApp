@@ -52,4 +52,4 @@ Key package structure under `app/src/main/java/com/dunesaero/missionnotes/`:
 *   **`MissionNotesApp.kt`**: The Application class, annotated with `@HiltAndroidApp`.
 *   **`MainActivity.kt`**: The main entry point activity, hosts Jetpack Compose content.
 
-
+**This Version is not complete and is still buggy**
