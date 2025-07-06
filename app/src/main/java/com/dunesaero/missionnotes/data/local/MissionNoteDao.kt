@@ -1,36 +1,37 @@
 package com.dunesaero.missionnotes.data.local
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.dunesaero.missionnotes.data.model.MissionNote
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MissionNoteDao {
 
+    // Insert a note into the database
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertNote(note: MissionNote)
+    suspend fun insert(note: MissionNote)
 
+    // Update an existing note
     @Update
-    suspend fun updateNote(note: MissionNote)
+    suspend fun update(note: MissionNote)
 
+    // Delete a note by reference
     @Delete
-    suspend fun deleteNote(note: MissionNote)
+    suspend fun delete(note: MissionNote)
 
-    @Query("SELECT * FROM mission_notes WHERE id = :id")
-    fun getNoteById(id: Int): Flow<MissionNote?>
+    // Delete a note by its ID
+    @Query("DELETE FROM mission_notes WHERE id = :id")
+    suspend fun deleteById(id: Int)
 
+    // Get all notes ordered by pinned first and timestamp descending
     @Query("SELECT * FROM mission_notes ORDER BY isPinned DESC, timestamp DESC")
     fun getAllNotes(): Flow<List<MissionNote>>
 
-    @Query("DELETE FROM mission_notes WHERE id = :id")
-    suspend fun deleteNoteById(id: Int)
+    // Get a single note by its ID
+    @Query("SELECT * FROM mission_notes WHERE id = :id")
+    suspend fun getNoteById(id: Int): MissionNote?
 
-    // For search functionality (bonus)
-    @Query("SELECT * FROM mission_notes WHERE title LIKE :searchQuery OR description LIKE :searchQuery ORDER BY isPinned DESC, timestamp DESC")
-    fun searchNotes(searchQuery: String): Flow<List<MissionNote>>
+    // Search notes by query matching title or description
+    @Query("SELECT * FROM mission_notes WHERE title LIKE '%' || :query || '%' OR description LIKE '%' || :query || '%'")
+    fun searchNotes(query: String): Flow<List<MissionNote>>
 }

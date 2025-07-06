@@ -6,5 +6,6 @@ import com.dunesaero.missionnotes.data.model.MissionNote
 
 @Database(entities = [MissionNote::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun missionNoteDao(): MissionNoteDao
+    // Renamed to match what's used in AppModule.kt
+    abstract fun noteDao(): MissionNoteDao
 }

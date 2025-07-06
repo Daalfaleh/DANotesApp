@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color // Added import
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.dunesaero.missionnotes.data.preferences.ThemeSetting
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -42,7 +43,7 @@ private val LightColorScheme = lightColorScheme(
     */
 )
 
-import com.dunesaero.missionnotes.data.preferences.ThemeSetting
+
 
 @Composable
 fun DroneMissionNotesTheme(
